@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import Logo from '../public/logo-white.png';
 import { Container } from '../packages/components/atoms/container';
 import { H1 } from '../packages/components/atoms/text';
 import { SearchInput } from '../packages/components/molecules/input';
@@ -11,12 +12,7 @@ export default function Home() {
       <div className='bg-blue-500'>
         <Container>
           <div className='flex justify-center p-4'>
-            <Image
-              src='/../public/logo-white.png'
-              alt='Logo'
-              width={200}
-              height={20}
-            />
+            <Image src={Logo} alt='Logo' width={200} height={20} />
           </div>
         </Container>
       </div>
