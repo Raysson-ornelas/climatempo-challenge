@@ -1,34 +1,40 @@
+import { Rain, Temperature } from '../../../context/weatherForecast';
 import ArrowDown from '../../atoms/icons/ArrowDown';
 import ArrowUp from '../../atoms/icons/ArrowUp';
 import Droplet from '../../atoms/icons/Droplet';
 import Umbrella from '../../atoms/icons/Umbrella';
 import { Text } from '../../atoms/text';
-import { ForeCastItem } from '../../molecules/forecastItem';
+import { ForecastItem } from '../../molecules/forecastItem';
 import { ForecastLine } from '../../molecules/forecastLine';
 
-export function ForecastBody() {
+interface Props {
+  temperature: Temperature;
+  rain: Rain;
+}
+
+export function ForecastBody({ temperature, rain }: Props) {
   return (
     <div className='p-4 grid gap-6 bg-gray-100'>
       <ForecastLine>
-        <ForeCastItem>
+        <ForecastItem>
           <ArrowUp />
-          <Text label='' variant='up' />
-        </ForeCastItem>
-        <ForeCastItem>
+          <Text label={`${temperature.max}°C`} variant='up' />
+        </ForecastItem>
+        <ForecastItem>
           <ArrowDown />
-          <Text label='' variant='down' />
-        </ForeCastItem>
+          <Text label={`${temperature.min}°C`} variant='down' />
+        </ForecastItem>
       </ForecastLine>
 
       <ForecastLine>
-        <ForeCastItem>
+        <ForecastItem>
           <Droplet />
-          <Text label='' variant='default' />
-        </ForeCastItem>
-        <ForeCastItem>
+          <Text label={`${rain.precipitation}mm`} variant='default' />
+        </ForecastItem>
+        <ForecastItem>
           <Umbrella />
-          <Text label='' variant='default' />
-        </ForeCastItem>
+          <Text label={`${rain.probability}%`} variant='default' />
+        </ForecastItem>
       </ForecastLine>
     </div>
   );

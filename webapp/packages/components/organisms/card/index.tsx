@@ -1,11 +1,21 @@
+import { WeatherEntity } from '../../../context/weatherForecast';
 import { ForecastBody } from '../forecastBody';
 import { ForecastHeader } from '../forecastHeader';
+interface Props {
+  weather: WeatherEntity[];
+}
 
-export function Card() {
+export function Card({ weather }: Props) {
   return (
-    <div className='overflow-hidden shadow-lg'>
-      <ForecastHeader />
-      <ForecastBody />
-    </div>
+    <>
+      {weather.map((val) => {
+        return (
+          <div className='overflow-hidden shadow-lg' key={Math.random()}>
+            <ForecastHeader date={val.date} description={val.text} />
+            <ForecastBody temperature={val.temperature} rain={val.rain} />
+          </div>
+        );
+      })}
+    </>
   );
 }
