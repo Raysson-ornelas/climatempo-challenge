@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 import '@testing-library/jest-dom/extend-expect';
-import { Text, H1 } from '.';
+import { Text, H1, SmallText } from '.';
 
 describe('Text component', () => {
   test('renders a text with the test label and default variant ', () => {
@@ -32,5 +32,14 @@ describe('H1 component', () => {
     const h1 = getByText('test');
     expect(h1).toBeTruthy();
     expect(h1).toHaveClass('text-xl font-semibold');
+  });
+});
+
+describe('SmallText component', () => {
+  test('renders a SmallText with the test label', () => {
+    const { getByText } = render(<SmallText label='test' />);
+    const smallText = getByText('test');
+    expect(smallText).toBeTruthy();
+    expect(smallText).toHaveClass('text-xs');
   });
 });
