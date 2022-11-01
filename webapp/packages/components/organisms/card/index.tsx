@@ -1,4 +1,4 @@
-import { WeatherEntity } from '../../../context/weatherForecast';
+import { WeatherEntity } from '../../../context/weather';
 import { ForecastBody } from '../forecastBody';
 import { ForecastHeader } from '../forecastHeader';
 interface Props {
