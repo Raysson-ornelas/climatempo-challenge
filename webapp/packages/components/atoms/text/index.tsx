@@ -24,5 +24,5 @@ export function SmallText({ label }: Omit<Props, 'variant'>) {
 }
 
 export function H1({ label }: Omit<Props, 'variant'>) {
-  return <p className='text-xl font-semibold'>{label}</p>;
+  return <p className='text-xl font-semibold py-4'>{label}</p>;
 }
