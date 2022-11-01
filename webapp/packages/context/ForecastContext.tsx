@@ -1,8 +1,9 @@
 import { createContext, ReactNode, useState } from 'react';
 
 import WeatherData from '../utils/weather.json';
+import LocaleData from '../utils/locales.json';
 
-import { Weather } from './weatherForecast';
+import { Weather, Locale } from './weather';
 
 export interface ChildrenProps {
   readonly children: ReactNode;
@@ -10,11 +11,13 @@ export interface ChildrenProps {
 
 interface IWeatherContext {
   weatherList: Weather[];
+  localeList: Locale[];
   search: (text: string) => void;
 }
 
 export const AppCtx = createContext<IWeatherContext>({
   weatherList: WeatherData,
+  localeList: LocaleData,
   search: () => {},
 });
 
@@ -35,6 +38,7 @@ const ForecastContextProvider = ({ children }: ChildrenProps) => {
     <AppCtx.Provider
       value={{
         weatherList: weathers,
+        localeList: LocaleData,
         search: (text: string) => setWeathers(weatherView(text)),
       }}
     >

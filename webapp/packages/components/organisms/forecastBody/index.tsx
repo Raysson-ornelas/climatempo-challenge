@@ -1,4 +1,4 @@
-import { Rain, Temperature } from '../../../context/weatherForecast';
+import { Rain, Temperature } from '../../../context/weather';
 import ArrowDown from '../../atoms/icons/ArrowDown';
 import ArrowUp from '../../atoms/icons/ArrowUp';
 import Droplet from '../../atoms/icons/Droplet';
